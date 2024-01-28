@@ -40,8 +40,6 @@ def LSTM_model_not_pre(voc_length, max_len):
     model.add(LSTM(60))
     model.add(Dropout(0.5))
     model.add(Dense(1, activation = "sigmoid"))
-    
-
     model.compile(loss="binary_crossentropy", optimizer=custom_optimizer, metrics=["accuracy"])
     return model
 def RNN_model():
