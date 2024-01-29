@@ -15,13 +15,21 @@ This project aims to perform sentiment classification using two different archit
 4. **utilities/utilities.py**: This Python script provides utility functions used for evaluating model performance. It includes functions for generating accuracy and loss curves, confusion matrices, and other evaluation metrics.
 
 5. **model_evaluation**: contains the curves about the model performance.
+
         model_evaluation/accuracy_curve_bidir_LSTM_40epoch.png
+
         model_evaluation/accuracy_curve_LSTM_40epoch.png
+
         model_evaluation/Bidir_LSTM_confusionmetric_40epoch.png
+
         model_evaluation/Classification_report_Bidir_LSTM_40epoch.png
+
         model_evaluation/Classification_report_LSTM_40epoch.png
+
         model_evaluation/loss_curve_Bidir_LSTM_40epoch.png
+
         model_evaluation/loss_curve_LSTM_40epoch.png
+        
         model_evaluation/model_evaluationLSTM_confusionmetric_40epoch.png
 
 ## Libraries Used
