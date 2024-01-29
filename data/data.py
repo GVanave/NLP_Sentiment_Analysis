@@ -1,15 +1,25 @@
 import pandas as pd 
 import re
-import nltk
-from sklearn.model_selection import train_test_split
 from nltk.corpus import stopwords
-from nltk.stem.porter import PorterStemmer
 import numpy as np
 import tensorflow
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 
+def check_null(df1, df2):
+    null_columns_df1 = df1.columns[df1.isnull().any()].tolist()
+    null_columns_df2 = df2.columns[df2.isnull().any()].tolist()
+
+    if null_columns_df1 or null_columns_df2:
+        print("There are null values in the DataFrames.")
+        if null_columns_df1:
+            print("Columns with null values in df1:", null_columns_df1)
+        if null_columns_df2:
+            print("Columns with null values in df2:", null_columns_df2)
+    else:
+        print("No null values in the DataFrames.")
+    return None
 
 def data_cleaning(df):
     
@@ -50,10 +60,13 @@ def remove_col(df):
     """
 
     # 1:positive 0:negative 2:neutral
-    df["Rating"] = df["rating"].apply(lambda x: 1 if x > 7 else (0 if x < 5 else 2))
+    df.loc[df["rating"] > 7, "Rating"] = 1
+    df.loc[df["rating"] < 5, "Rating"] = 0
+    df.loc[(df["rating"] >= 5) & (df["rating"] <= 7), "Rating"] = 2
     df["Rating"] = df["Rating"].astype(int)
     df = df[df["Rating"] != 2]
     df = df.drop("id", axis=1)
+    df = df.copy()
 
     return df
 
@@ -95,6 +108,9 @@ def data_preprocessing(train_data_path, test_data_path):
     # read the train and test data
     train_df = pd.read_csv(train_data_path, delimiter = "\t")
     test_df = pd.read_csv(test_data_path, delimiter = "\t")
+
+    # check null values
+    check_null(train_df, test_df)
 
     # cleaning the reviews, removing unwanted information
     train_df["review_cleaned"] = data_cleaning(train_df)
