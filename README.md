@@ -24,7 +24,6 @@ This project aims to perform sentiment classification using two different archit
         model_evaluation/loss_curve_LSTM_40epoch.png
         model_evaluation/model_evaluationLSTM_confusionmetric_40epoch.png
 
-
 ## Libraries Used
 
 - pandas==2.2.0
