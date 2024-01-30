@@ -1,5 +1,7 @@
 # Sentiment Classification using LSTM and Bidirectional LSTM
 
+![Sample Image](https://github.com/GVanave/NLP_Sentiment_Analysis/blob/master/LSTM.png)
+
 ## Overview
 
 This project aims to perform sentiment classification using two different architectures: LSTM and Bidirectional LSTM. The sentiment classification is conducted on a dataset containing labeled reviews, with the objective of predicting whether a given review expresses positive or negative sentiment.
@@ -29,7 +31,7 @@ This project aims to perform sentiment classification using two different archit
         model_evaluation/loss_curve_Bidir_LSTM_40epoch.png
 
         model_evaluation/loss_curve_LSTM_40epoch.png
-        
+
         model_evaluation/model_evaluationLSTM_confusionmetric_40epoch.png
 
 ## Libraries Used
